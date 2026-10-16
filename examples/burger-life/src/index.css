@@ -231,6 +231,21 @@
   animation: spotlight-enter 900ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
+.auth-feedback {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@starting-style {
+  .auth-feedback {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-spotlight {
     animation: none;
@@ -241,6 +256,18 @@
   [data-slot="button"]:active {
     transform: none;
     opacity: 0.88;
+  }
+
+  .auth-feedback {
+    transform: none;
+    transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  @starting-style {
+    .auth-feedback {
+      opacity: 0;
+      transform: none;
+    }
   }
 
   [data-slot="accordion-content"],

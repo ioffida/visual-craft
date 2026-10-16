@@ -18,6 +18,7 @@ import { Spotlight } from "@/components/ui/spotlight"
 import { ContentRequirement } from "@/components/content-requirement"
 import { FlavorCart } from "@/components/flavor-cart"
 import { LaunchForm } from "@/components/launch-form"
+import { AccountLoginScreen, useAccountScreen } from "@/components/login-form"
 import { contentRequirements } from "@/content/requirements"
 
 const steps = [
@@ -75,6 +76,12 @@ const proofGaps = [
 ]
 
 export default function App() {
+  const accountOpen = useAccountScreen()
+
+  if (accountOpen) {
+    return <AccountLoginScreen />
+  }
+
   return (
     <>
       <a
@@ -96,6 +103,9 @@ export default function App() {
           </a>
           <a href="#subscription" className="rounded-md py-1 underline-offset-4 hover:underline focus-visible:ring-3 focus-visible:ring-ring">
             Подписка
+          </a>
+          <a href="#cabinet" className="rounded-md py-1 underline-offset-4 hover:underline focus-visible:ring-3 focus-visible:ring-ring">
+            Кабинет
           </a>
           <a href="#questions" className="rounded-md py-1 underline-offset-4 hover:underline focus-visible:ring-3 focus-visible:ring-ring">
             Вопросы
@@ -210,6 +220,14 @@ export default function App() {
               Сейчас открыта только запись на старт продаж. Платная доставка —
               отдельный шаг после письма, не эта форма.
             </p>
+            <Button
+              size="lg"
+              variant="outline"
+              render={<a href="#cabinet" />}
+              nativeButton={false}
+            >
+              Войти в кабинет подписки
+            </Button>
           </div>
           <ol className="flex max-w-3xl flex-col gap-6">
             {steps.map((step, index) => (
