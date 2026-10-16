@@ -1,0 +1,11 @@
+{
+  "name": "visual-creator-wf",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify-catalog": "node scripts/verify-catalog.mjs"
+  },
+  "devDependencies": {
+    "yaml": "^2.8.1"
+  }
+}

@@ -1,0 +1,306 @@
+# Install records only. No component source. Slugs were fetched before this file was written.
+# The verifier re-fetches every registry URL.
+
+items:
+  - id: auth-login-01
+    role: auth
+    source: shadcn
+    tier: free
+    license: mit
+    install: npx shadcn@latest add login-01
+    registry: https://ui.shadcn.com/r/styles/new-york/login-01.json
+    when: Default sign-in screen. The CLI resolves the project style; this URL is the fetched artifact.
+    limits:
+      - Fit spacing and color to the open style lane. Do not redraw the form.
+      - Motion is press, error, and success only.
+
+  - id: auth-login-02
+    role: auth
+    source: shadcn
+    tier: free
+    license: mit
+    install: npx shadcn@latest add login-02
+    registry: https://ui.shadcn.com/r/styles/new-york/login-02.json
+    when: Sign-in screen when login-01 is already used or a second layout is required.
+    limits:
+      - Same motion and fit rules as auth-login-01.
+
+  - id: button-shadcn
+    role: button
+    source: shadcn
+    tier: free
+    license: mit
+    install: npx shadcn@latest add button
+    registry: https://ui.shadcn.com/r/styles/new-york/button.json
+    when: Default control for actions, including submit.
+    limits:
+      - Press feedback uses transform and opacity. Do not restyle the whole page.
+
+  - id: button-luxe
+    role: button
+    source: luxe
+    tier: free
+    license: mit
+    install: npx luxe add button
+    registry: https://www.luxeui.com/registry/components/button.json
+    when: The brief asks for a stronger button and the project already ran npx luxe init.
+    limits:
+      - Luxe CLI only. Do not pass this URL to the shadcn CLI.
+
+  - id: hero-video-dialog
+    role: hero
+    source: magicui
+    tier: free
+    license: mit
+    install: npx shadcn@latest add @magicui/hero-video-dialog
+    registry: https://magicui.design/r/hero-video-dialog.json
+    when: One first-screen moment that opens a product video from a thumbnail.
+    limits:
+      - One viewport effect per page.
+
+  - id: hero-spotlight
+    role: hero
+    source: aceternity
+    tier: free
+    license: aceternity-end-product
+    install: npx shadcn@latest add @aceternity/spotlight
+    registry: https://ui.aceternity.com/registry/spotlight.json
+    when: One first-screen spotlight behind a headline.
+    limits:
+      - Free component only. Refuse Pro, Block, and Template items.
+      - One viewport effect per page.
+
+  - id: hero-masked-heading
+    role: hero
+    source: react-bits
+    tier: free
+    license: mit-commons-clause
+    install: npx shadcn@latest add @react-bits/MaskedHeading-TS-TW
+    registry: https://reactbits.dev/r/MaskedHeading-TS-TW.json
+    when: The headline itself is the first-screen effect.
+    limits:
+      - TypeScript and Tailwind flavor only.
+      - Do not resell or redistribute the component.
+
+  - id: background-beams
+    role: background
+    source: aceternity
+    tier: free
+    license: aceternity-end-product
+    install: npx shadcn@latest add @aceternity/background-beams
+    registry: https://ui.aceternity.com/registry/background-beams.json
+    when: A quiet beam field behind one section.
+    limits:
+      - One viewport effect per page.
+      - Free component only.
+
+  - id: background-particles
+    role: background
+    source: magicui
+    tier: free
+    license: mit
+    install: npx shadcn@latest add @magicui/particles
+    registry: https://magicui.design/r/particles.json
+    when: A light particle field behind content, instead of beams.
+    limits:
+      - One viewport effect per page.
+
+  - id: background-aurora
+    role: background
+    source: react-bits
+    tier: free
+    license: mit-commons-clause
+    install: npx shadcn@latest add @react-bits/Aurora-TS-TW
+    registry: https://reactbits.dev/r/Aurora-TS-TW.json
+    when: A soft aurora across the top of a marketing page.
+    limits:
+      - One viewport effect per page.
+      - Do not resell or redistribute the component.
+
+  - id: text-aurora
+    role: text
+    source: magicui
+    tier: free
+    license: mit
+    install: npx shadcn@latest add @magicui/aurora-text
+    registry: https://magicui.design/r/aurora-text.json
+    when: A short headline needs a shifting gradient and no other viewport effect is used.
+    limits:
+      - Counts as the one viewport effect when it is the memorable moment.
+
+  - id: text-blur
+    role: text
+    source: react-bits
+    tier: free
+    license: mit-commons-clause
+    install: npx shadcn@latest add @react-bits/BlurText-TS-TW
+    registry: https://reactbits.dev/r/BlurText-TS-TW.json
+    when: One line enters by resolving from blur. Not for body copy.
+    limits:
+      - One viewport effect per page.
+
+  - id: text-generate
+    role: text
+    source: aceternity
+    tier: free
+    license: aceternity-end-product
+    install: npx shadcn@latest add @aceternity/text-generate-effect
+    registry: https://ui.aceternity.com/registry/text-generate-effect.json
+    when: One headline reveals itself. Not for paragraphs.
+    limits:
+      - Free component only.
+      - One viewport effect per page.
+
+  - id: card-shadcn
+    role: card
+    source: shadcn
+    tier: free
+    license: mit
+    install: npx shadcn@latest add card
+    registry: https://ui.shadcn.com/r/styles/new-york/card.json
+    when: A content card, flavor card, or form surface.
+    limits:
+      - Use CardHeader, CardTitle, CardContent, and CardFooter.
+
+  - id: card-evervault
+    role: card
+    source: aceternity
+    tier: free
+    license: aceternity-end-product
+    install: npx shadcn@latest add @aceternity/evervault-card
+    registry: https://ui.aceternity.com/registry/evervault-card.json
+    when: One featured card needs a hover effect. Not for every card in a grid.
+    limits:
+      - Free component only.
+
+  - id: card-stack
+    role: card
+    source: aceternity
+    tier: free
+    license: aceternity-end-product
+    install: npx shadcn@latest add @aceternity/card-stack
+    registry: https://ui.aceternity.com/registry/card-stack.json
+    when: A small set of cards should cycle as one moment.
+    limits:
+      - Free component only.
+      - One viewport effect per page.
+
+  - id: empty-shadcn
+    role: empty
+    source: shadcn
+    tier: free
+    license: mit
+    install: npx shadcn@latest add empty
+    registry: https://ui.shadcn.com/r/styles/new-york/empty.json
+    when: An empty screen invites an action.
+    limits:
+      - Do not hand-build an empty state from styled divs.
+
+  - id: empty-field
+    role: empty
+    source: shadcn
+    tier: free
+    license: mit
+    install: npx shadcn@latest add field
+    registry: https://ui.shadcn.com/r/styles/new-york/field.json
+    when: The empty or form state needs Field, FieldLabel, and validation wiring.
+    limits:
+      - data-invalid on Field, aria-invalid on the control.
+
+  - id: success-confetti
+    role: success
+    source: magicui
+    tier: free
+    license: mit
+    install: npx shadcn@latest add @magicui/confetti
+    registry: https://magicui.design/r/confetti.json
+    when: A rare completed action, such as a first signup, may burst once.
+    limits:
+      - Do not fire on keyboard input or on a control used many times a day.
+
+  - id: success-status-mark
+    role: success
+    source: react-bits
+    tier: free
+    license: mit-commons-clause
+    install: npx shadcn@latest add @react-bits/StatusMark-TS-TW
+    registry: https://reactbits.dev/r/StatusMark-TS-TW.json
+    when: A status glyph moves from idle to a check after one completed action.
+    limits:
+      - Do not animate keystrokes.
+
+  - id: icon-lucide
+    role: icon
+    source: lucide
+    tier: free
+    license: isc
+    install: procedure
+    when: Default icons. Use the icon package already chosen in components.json, which shadcn sets to lucide unless the project changed it.
+    limits:
+      - No Icons8.
+      - No sizing classes on icons inside shadcn components. Use data-icon.
+
+  - id: icon-project-library
+    role: icon
+    source: lucide
+    tier: free
+    license: isc
+    install: procedure
+    when: The project already set iconLibrary in components.json. Keep that set. Do not swap it unless the user asks.
+    limits:
+      - Read iconLibrary from components.json before adding an icon import.
+
+  - id: theme-vercel
+    role: theme
+    source: tweakcn
+    tier: free
+    license: tweakcn-theme
+    install: npx shadcn@latest add https://tweakcn.com/r/themes/vercel.json
+    registry: https://tweakcn.com/r/themes/vercel.json
+    when: A precise neutral theme when the style lane is open and no theme is chosen yet.
+    limits:
+      - Do not vendor the tweakcn app.
+
+  - id: theme-supabase
+    role: theme
+    source: tweakcn
+    tier: free
+    license: tweakcn-theme
+    install: npx shadcn@latest add https://tweakcn.com/r/themes/supabase.json
+    registry: https://tweakcn.com/r/themes/supabase.json
+    when: A dark emerald theme when the brief is closer to a developer product than to a neutral page.
+    limits:
+      - Do not vendor the tweakcn app.
+
+  - id: theme-modern-minimal
+    role: theme
+    source: tweakcn
+    tier: free
+    license: tweakcn-theme
+    install: npx shadcn@latest add https://tweakcn.com/r/themes/modern-minimal.json
+    registry: https://tweakcn.com/r/themes/modern-minimal.json
+    when: A light minimal theme for a consumer page.
+    limits:
+      - Do not vendor the tweakcn app.
+
+  - id: lottie-dotlottie
+    role: lottie
+    source: lottiefiles
+    tier: free
+    license: lottie-simple-license
+    install: procedure
+    when: One illustration needs motion that a component cannot carry. Search the free gallery, open one page, confirm Lottie Simple License on that page, save that file under public/animations/, and render it with @lottiefiles/dotlottie-react. Record the page URL and license in public/animations/CREDITS.md.
+    limits:
+      - One file per request.
+      - Refuse Premium animations and bulk downloads.
+
+  - id: lottie-lottie-react
+    role: lottie
+    source: lottiefiles
+    tier: free
+    license: lottie-simple-license
+    install: procedure
+    when: Same single-file procedure as lottie-dotlottie, but render a JSON file with lottie-react when the file is JSON rather than dotLottie.
+    limits:
+      - One file per request.
+      - Do not store the file in the visual-craft repository.
