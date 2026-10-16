@@ -16,6 +16,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { Spotlight } from "@/components/ui/spotlight"
 import { ContentRequirement } from "@/components/content-requirement"
+import { FlavorCart } from "@/components/flavor-cart"
 import { LaunchForm } from "@/components/launch-form"
 import { contentRequirements } from "@/content/requirements"
 
@@ -172,10 +173,11 @@ export default function App() {
                 позиция линейки. Рецепт позиции страница не показывает.
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex flex-col gap-4">
               <ContentRequirement id="flavor-lineup">
                 {contentRequirements.flavors}
               </ContentRequirement>
+              <FlavorCart />
             </CardContent>
           </Card>
         </section>
