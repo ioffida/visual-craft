@@ -5,7 +5,9 @@ description: Routes UI requests to free registry installs and a license gate. Us
 
 # Visual craft
 
-Install real source from [catalog.yaml](catalog.yaml). Do not recreate a component from memory. Do not open a lane the user closed.
+The user's request is the brief. Carry out every thing they named. A taste rule may recommend a quieter version, ask a question, or name a risk. It does not remove or postpone a named element.
+
+Install a catalog record when one matches. A product feature the catalog does not list, such as a QR code, is built in the project. Do not redraw a catalog block from memory. Do not open a lane the user closed.
 
 ## Stack
 
@@ -15,25 +17,25 @@ Registry installs need `components.json`. If it is missing, print `npx shadcn@la
 
 ## Lanes
 
-Start with every lane closed. Open a lane from the user's words first. On a selling page, if the user left a lane unspecified, use the page job from the `landing-copy` skill.
+Start with every lane closed. Open a lane from the user's words first. `landing-copy` names the audience and the claim. It does not set a visual ceiling.
 
 | Lane | Open | Closed by |
 | --- | --- | --- |
-| Style | "make it look like…", a new marketing page, or no theme yet | "keep the current style", "only the animation", "only icons" |
+| Style | a design, a restyle, a site, or no theme yet | "keep the current style", "only the animation", "only icons" |
 | Structure | a screen, named block, form, dialog, or missing control | "only the animation", "only the style", or the block already exists |
-| Motion | an action needs feedback, or a selling page needs one memorable moment | "no animation", or the request never mentions motion or a page |
+| Motion | an action needs feedback, or the user asked for a design or a visual | "no animation", or the request never mentions motion, a design, or a page |
 | Icons | the user asks, or a new control has an empty icon slot | an icon set is already chosen and the user did not ask to replace it |
-| Illustration | an animated illustration, or a success scene a component cannot carry | anything else |
+| Illustration | a picture, a scene, a QR code, or a success moment a component cannot carry | the user did not ask for one |
 
-Page job, only for lanes the user did not specify:
+A pet shop, a technical catalog, a landing page, and a one-page tool follow the same visual rule. An existing screen stays open for a new piece the user names.
 
-| Page job | Style | Structure | Motion |
-| --- | --- | --- | --- |
-| Category introduction, campaign | Open. One `DESIGN.md`. | Open for sections being built | One viewport effect |
-| Product selection, pricing, feature evaluation | Open only if no theme yet | Open for sections being built | Feedback only |
-| Daily product UI | Closed when a theme exists | Match components already in the repo | Feedback on occasional actions |
+| User asked for | Style | Motion |
+| --- | --- | --- |
+| A page, a redesign, or anything they want seen | Open, unless they said to keep the current style. One `DESIGN.md`. | The motion they named. A first-screen effect is the default recommendation, not a cap. |
+| Only a control or only the animation | Closed | Feedback on that control |
+| Nothing visual, and a theme already exists | Closed | Feedback on the action they named |
 
-Explicit words win. "Only the animation" opens Motion and leaves Style and Structure closed.
+Explicit words win. "Only the animation" opens Motion and leaves Style and Structure closed. Product type never cancels a named effect. One quiet page is a recommendation: named extras, including a background and a QR code, are built.
 
 ## Order
 

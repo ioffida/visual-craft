@@ -86,19 +86,19 @@ The router starts with every lane closed. A lane opens from the user's words or 
 | --- | --- | --- | --- |
 | Style | "make it look like…", a new marketing page, or no visual brief exists yet | One `DESIGN.md`, and a tweakcn theme if tokens should change | "keep the current style", "only the animation", "only icons" |
 | Structure | The user asks for a screen, a named block, a form, a dialog, or a control | A registry block or component for that piece, then fitted to the open style | "only the animation", "only the style", or the project already has that block |
-| Motion | An action needs feedback, or a selling page needs one memorable moment | One catalog effect, or short CSS/Motion on the control that changed | "no animation", keyboard-heavy UI, or a request that never mentions motion or a landing |
+| Motion | An action needs feedback, or the user asked for a design or a visual | One catalog effect on the first screen, or short feedback on the control that changed | "no animation", or a request that never mentions motion, a design, or a page |
 | Icons | The user asks for icons, or a new control has an empty icon slot | Lucide icons | The screen already uses a chosen icon set and the user did not ask to replace it |
 | Illustration | The user asks for an animated illustration or a success/empty scene that a component cannot carry | One Lottie file under the license gate | Everything else |
 
-Page job from `landing-copy` fills in lanes the user left unspecified:
+`landing-copy` names the audience and the claim. The page job does not set a visual ceiling. A pet shop, a technical store, a landing page, and a one-page tool use the same visual rule.
 
-| Page job | Style | Structure | Motion |
-| --- | --- | --- | --- |
-| Category introduction, campaign response | Open, pick one `DESIGN.md` | Open for the sections being built | One viewport effect |
-| Product selection, pricing, feature evaluation | Open only if the product has no theme yet | Open for the sections being built | Feedback on actions, no viewport effect |
-| Daily product UI | Closed when a theme exists | Match the components already in the repo | Feedback on occasional actions only |
+| User asked for | Style | Motion |
+| --- | --- | --- |
+| A design, a restyle, a site, or a visual | Open, unless they said to keep the current style. One `DESIGN.md`. | One first-screen effect, plus press, error, and success on actions |
+| Only a control, or only the animation | Closed | Feedback on that control |
+| Nothing visual, and a theme already exists | Closed | Feedback on the action they named |
 
-Explicit user words beat the table. "Only the animation" on a campaign page opens Motion and leaves Style and Structure closed.
+Explicit user words beat the table. "Only the animation" opens Motion and leaves Style and Structure closed. Product type does not cancel the first-screen effect. A named extra, including a background, another animation, or a QR code, is built. One quiet page is a recommendation, not a cap. A product feature the catalog does not list is built in the project.
 
 ## Blocks
 
@@ -156,7 +156,7 @@ Motion answers a state change or carries the single memorable moment on a market
 | --- | --- |
 | Press, hover on a fine pointer, open or close of an occasional overlay, success, error, empty-state invitation | Short feedback. `transform` and `opacity`, `ease-out`, under 300ms. Press uses a small scale, about `0.97`. |
 | Keyboard shortcut, command palette, or any control used many times a day | No animation. |
-| Marketing first screen | One effect from the catalog (hero, background, or text). The rest of the page stays quiet. |
+| First screen, when the user asked for a design or a visual | One effect from the catalog (hero, background, or text). A looping background is allowed. The rest of the page stays quiet. Product type does not remove this row. |
 | `prefers-reduced-motion` | Keep color and opacity changes. Drop movement. |
 
 This is the build rule. It matches `frontend-design` (action motion is welcome, scattered entrance motion is a tell) and the frequency bar in `review-animations` (high-frequency actions stay still). A success moment may use a catalog effect or a single Lottie file. A static paragraph does not get a looping animation.

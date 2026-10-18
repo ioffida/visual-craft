@@ -94,3 +94,9 @@ try {
     throw error
   }
 }
+
+const ruleSrc = resolve(root, "rules", "visual-craft.mdc")
+const ruleDest = resolve(productDir, ".cursor", "rules", "visual-craft.mdc")
+await mkdir(dirname(ruleDest), { recursive: true })
+await cp(ruleSrc, ruleDest)
+console.log("Wrote .cursor/rules/visual-craft.mdc.")
