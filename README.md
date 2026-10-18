@@ -6,6 +6,15 @@
 
 An external MCP server and a rule pack for Cursor. In a React and Tailwind project, Cursor installs real free components from a catalog. The server does not write files into that project.
 
+## What it does
+
+Say what you want seen. Visual Craft turns that sentence into a React and Tailwind page, or into the one control you named.
+
+- A full landing from a text brief: claim, layout, first screen, and the motion you asked for.
+- One button, its press, or a success animation, leaving the rest of the page as it is.
+- A sign-in screen, a theme, icons, a background, or a QR code, each taken from the free catalog.
+- Cursor installs the real component. The server only names it.
+
 ## How it works
 
 The running server says what to install. The pack says where it goes. The person's request wins over taste: a named background, a second animation, or a QR code is built. A license failure, someone else's logo, or a paid registry is still a refusal.
