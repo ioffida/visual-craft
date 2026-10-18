@@ -9,7 +9,7 @@ The visual-craft MCP server is connected in Cursor. The design skills live in `.
 
 When the user asks for a landing page, a restyle, motion, icons, or a UI block:
 
-1. Call `apply-style` before writing the page. Call `find-component` and `check-license` before each install. Call `check-visual` after the change.
+1. Call `apply-style` before writing the page. Call `find-component` and `check-license` before each install. After any visual edit in this chat, call `check-visual` before the reply. Do not wait for a separate request.
 2. On a selling page, follow `landing-copy` for the audience, the claim, and the page job. Follow `frontend-design` only when the style lane is open. Follow `shadcn` when installing a registry component.
 3. After the visual change, review the edited files with `web-design-guidelines` and `review-animations`.
 4. Install the catalog record the MCP names. Do not invent a lookalike. Do not open a lane the MCP marked closed.

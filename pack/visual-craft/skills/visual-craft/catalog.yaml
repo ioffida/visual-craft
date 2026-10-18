@@ -185,6 +185,49 @@ items:
       - Free component only.
       - One viewport effect per page.
 
+  - id: nav-floating
+    role: nav
+    source: aceternity
+    tier: free
+    license: aceternity-end-product
+    install: npx shadcn@latest add @aceternity/floating-navbar
+    registry: https://ui.aceternity.com/registry/floating-navbar.json
+    when: A landing needs a top navigation bar.
+    limits:
+      - Free component only. Do not install resizable-navbar.
+      - Remove the sample word Login. Do not ship an Aceternity logo.
+
+  - id: faq-accordion
+    role: faq
+    source: shadcn
+    tier: free
+    license: mit
+    install: npx shadcn@latest add accordion
+    registry: https://ui.shadcn.com/r/styles/new-york/accordion.json
+    when: A landing needs questions and answers. The CLI resolves the project style; this URL is the fetched artifact.
+    limits:
+      - Questions come from the request. Do not invent clinical claims.
+
+  - id: pricing-cards
+    role: pricing
+    source: shadcn
+    tier: free
+    license: mit
+    install: procedure
+    when: A landing names prices or plans. Install card-shadcn and lay three cards. Prices come only from the request.
+    limits:
+      - No paid pricing section. Do not invent a fourth plan.
+
+  - id: footer-links
+    role: footer
+    source: project
+    tier: free
+    license: project
+    install: procedure
+    when: A landing needs a footer. A short row of links from the request.
+    limits:
+      - No logo file. No newsletter form unless the request names one.
+
   - id: empty-shadcn
     role: empty
     source: shadcn

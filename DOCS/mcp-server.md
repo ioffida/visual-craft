@@ -11,6 +11,7 @@ mcp/visual-craft/
   package.json          # private package, own dependencies
   src/index.js          # tool registration; stdio entry used by tests
   src/http.js           # localhost listener on 127.0.0.1:3847
+  src/stop.js           # stops the pid written by the HTTP listener
   src/catalog.js        # reads the shared catalog
   src/license.js        # the license gate
   src/plan.js           # lanes, theme, effect, and block picks
@@ -19,13 +20,13 @@ mcp/visual-craft/
   test/stdio.test.js
 ```
 
-Start it with:
+Start it from `mcp/visual-craft`:
 
 ```bash
-node mcp/visual-craft/src/index.js
+npm start
 ```
 
-Cursor launches that command. A terminal session is not required. stdout is the protocol. Logs, if any, go to stderr.
+That runs the HTTP listener at `http://127.0.0.1:3847/mcp`. Cursor connects to that URL. It does not launch the process. `npm run stop` ends it. The stdio entry in `src/index.js` stays for tests.
 
 ## Tools
 
@@ -44,12 +45,12 @@ Lane words match the tested skill. "Only the animation" and "только ани
 
 ## Run
 
-From the repository root:
+From `mcp/visual-craft`:
 
-- `start-visual-craft-mcp.bat` starts the server on `127.0.0.1:3847` and writes `mcp/visual-craft/visual-craft-mcp.pid`.
-- `stop-visual-craft-mcp.bat` stops that process.
+- `npm start` listens on `127.0.0.1:3847` and writes `visual-craft-mcp.pid`.
+- `npm run stop` stops that process.
 
-The listener stays up until the stop script runs. Cursor does not launch it.
+On Windows, `start-visual-craft-mcp.bat` and `stop-visual-craft-mcp.bat` call those same commands. The listener stays up until stop runs. Cursor does not launch it.
 
 ## Connect
 
@@ -73,7 +74,6 @@ The user writes a normal request. Cursor shows the tool by its title and sends t
 2. Cursor calls **Применить стиль** (`apply-style`) with that sentence and the open project's path.
 3. The reply lists open lanes, `theme-modern-minimal`, `hero-spotlight`, and the motion limits. It does not write `DESIGN.md`.
 4. The model installs those records in the project and writes the page.
-5. User: "Проверь визуал."
-6. Cursor calls **Проверить визуал** (`check-visual`). A closed style lane with `DESIGN.md` in the diff fails. `@magicui-pro` in `package.json` fails.
+5. Before the reply, Cursor calls **Проверить визуал** (`check-visual`). A closed style lane with `DESIGN.md` in the diff fails. `@magicui-pro` in `package.json` fails. The user does not have to ask.
 
 A request such as "поставь @magicui-pro/hero-1" or "скачай 30 анимаций" stops in **Проверить лицензию** (`check-license`) before a download.

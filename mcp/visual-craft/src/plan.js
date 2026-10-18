@@ -99,6 +99,7 @@ export function openLanes(request, input = {}) {
   const motionWord = /animat|анимац|\bmotion\b|движен/i.test(request)
   const iconWord = /icon|икон/i.test(request)
   const illustration = /lottie|illustration|иллюстрац|картин|сцен|qr|кьюар|picture|scene/i.test(request)
+  const sectionWord = sectionKind(request) != null
   const lookLike = /make it look|оформи|выгляд|прикольн/i.test(request)
   const visualRequest =
     /дизайн|design|визуал|visual|оформи|restyle|сайт|\bsite\b|магазин|лендинг|landing|первый экран|first screen|фон|background/i.test(
@@ -107,9 +108,14 @@ export function openLanes(request, input = {}) {
   const pageRequest =
     visualRequest ||
     lookLike ||
-    /переделай|одностранич|страниц|\bpage\b|\bbuild\b|redesign/i.test(request)
+    /одностранич|страниц|\bpage\b|\bbuild\b/i.test(request)
   const pageJob = input.pageJob ?? null
   const marketing = landing || pageJob === "category_introduction" || pageRequest
+  const pageNoun =
+    /лендинг|landing|страниц|одностранич|\bpage\b|сайт|\bsite\b|дизайн|design|экран|screen|инструмент|фон|background|магазин/i.test(
+      request,
+    )
+  const buttonOnly = /кнопк|\bbutton\b/i.test(request) && !pageNoun
 
   if (onlyAnimation) {
     return laneSet({ motion: "open" })
@@ -120,12 +126,22 @@ export function openLanes(request, input = {}) {
   if (onlyStyle) {
     return laneSet({ style: "open" })
   }
+  if (buttonOnly) {
+    return {
+      style: "closed",
+      structure: "open",
+      motion: motionWord ? "open" : "closed",
+      icons: "closed",
+      illustration: "closed",
+      motionMode: motionWord ? "feedback" : null,
+    }
+  }
 
   const styleClosed = keepStyle || onlyAnimation || onlyIcons
   const styleOpen =
     !styleClosed &&
     (lookLike || marketing || (input.hasTheme === false && (marketing || auth || pageJob)))
-  const namedPiece = pageRequest || illustration
+  const namedPiece = pageRequest || illustration || sectionWord
   const structureClosed =
     onlyAnimation || onlyStyle || onlyIcons || (input.blockExists === true && !namedPiece)
   const structureOpen = !structureClosed && (marketing || auth || pageJob != null || lookLike || namedPiece)
@@ -165,8 +181,29 @@ function choosePicks(request, input, lanes, items) {
   if (lanes.motion === "open" && lanes.motionMode === "viewport") {
     picks.push(record(items, effectId(request)))
   }
+  if (
+    lanes.structure === "open" &&
+    /кнопк|\bbutton\b/i.test(request) &&
+    !/landing|лендинг|продающ|marketing page/i.test(request)
+  ) {
+    picks.push(record(items, "button-shadcn"))
+  }
   if (lanes.structure === "open" && /\bauth\b|login|sign-?in|вход|кабинет|авториз/i.test(request)) {
     picks.push(record(items, "auth-login-01"))
+  }
+  if (lanes.structure === "open") {
+    const landingPage = /landing|лендинг|продающ|marketing page/i.test(request)
+    const kind = sectionKind(request)
+    const roles = landingPage ? ["nav", "pricing", "faq", "footer"] : kind ? [kind] : []
+    for (const role of roles) {
+      if (role === "nav") picks.push(record(items, "nav-floating"))
+      if (role === "pricing") {
+        picks.push(record(items, "pricing-cards"))
+        picks.push(record(items, "card-shadcn"))
+      }
+      if (role === "faq") picks.push(record(items, "faq-accordion"))
+      if (role === "footer") picks.push(record(items, "footer-links"))
+    }
   }
   if (lanes.motion === "open" && lanes.motionMode === "feedback") {
     const success = /корзин|cart|добав/i.test(request) ? "success-status-mark" : null
@@ -179,6 +216,14 @@ function choosePicks(request, input, lanes, items) {
     picks.push(record(items, "lottie-dotlottie"))
   }
   return picks.filter(Boolean)
+}
+
+function sectionKind(request) {
+  if (/меню|навигац|navbar|\bnav\b/i.test(request)) return "nav"
+  if (/тариф|цен(?:а|ы|у|е)|pricing/i.test(request)) return "pricing"
+  if (/\bfaq\b|вопрос/i.test(request)) return "faq"
+  if (/подвал|footer/i.test(request)) return "footer"
+  return null
 }
 
 function themeId(tone) {

@@ -11,7 +11,7 @@ The MCP server names a real free component when the catalog has one. A product f
 3. Read the skill below that matches the open lane, then edit the existing page.
 4. Call `check-license` before every install or download. Call `find-component` when the reply has no record for a role.
 5. Run the install command in this project. Fit spacing, type, and color to the open style. Leave the installed markup in place.
-6. Call `check-visual`. Then review the edited files with `skills/web-design-guidelines/SKILL.md` and, if motion changed, `skills/review-animations/SKILL.md`.
+6. After any visual edit in this chat, call `check-visual` before the reply. Do not wait for a separate request. Then review the edited files with `skills/web-design-guidelines/SKILL.md` and, if motion changed, `skills/review-animations/SKILL.md`.
 
 ## Where each piece goes
 

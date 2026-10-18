@@ -1,4 +1,4 @@
-# Visual Craft
+# Visual Craft GTR
 
 [Русский](README.ru.md)
 
@@ -6,20 +6,41 @@
 
 An external MCP server and a rule pack for Cursor. In a React and Tailwind project, Cursor installs real free components from a catalog. The server does not write files into that project.
 
-## What it does
+## What you can ask
 
-Say what you want seen. Visual Craft turns that sentence into a React and Tailwind page, or into the one control you named.
+Each line is its own request. The words decide how much of the page changes. Cursor installs the component. The server only names it.
 
-- A full landing from a text brief: claim, layout, first screen, and the motion you asked for.
-- One button, its press, or a success animation, leaving the rest of the page as it is.
-- A sign-in screen, a theme, icons, a background, or a QR code, each taken from the free catalog.
-- Cursor installs the real component. The server only names it.
+- **A whole landing.** Ask for a landing page. Visual Craft builds it from the free catalog: navigation, a first screen, prices you stated, questions and answers, and a footer made of your links. One theme and one design file.
+- **An animated landing.** Name the motion. A background, a headline effect, and a second animation are built. A quieter page is only a suggestion.
+- **A button.** Ask to rework only this button. That control is replaced. The rest of the page stays.
+- **Button animation.** Ask for only the animation on this button. Press, error, and success sit on that control. The page style stays.
+- **A style of its own.** Ask for only the style. One design file and one theme. The sections stay where they are.
+- **Keep the current style.** A new screen uses the theme already in the project.
+- **A sign-in screen.** A catalog login block, with press, error, and success. The form is not redrawn from memory.
+- **A background.** Beams, particles, or aurora, when you name that kind of background.
+- **Headline motion.** A masked heading, blurred text, or text that appears, when you name the headline.
+- **Icons.** Lucide, in empty slots of controls just added, or when you ask for icons only.
+- **A QR code.** Built in the project when you ask for one. A missing catalog record is not a refusal.
+- **One illustration.** A single Lottie file whose page states the Simple License, saved with a credits file.
+- **An empty screen.** A catalog empty state that invites the next action.
+- **A success moment.** A check when an item first enters a cart, or confetti when a signup succeeds.
+- **A shop, a catalog, or a one-page tool.** The same visual rule as a landing. Naming an effect is enough. The kind of product does not cancel it.
+- **No animation.** Say so, and motion stays closed.
+
+A paid registry, someone else's logo, Icons8, and a bulk Lottie download stay a refusal.
+
+## Phrases
+
+- A whole page: `Use Visual Craft. Make this a landing page.`
+- Only a button: `Use Visual Craft. Only this button.`
+- Only animation: `Use Visual Craft. Only the animation on this button.`
+- Only the style: `Use Visual Craft. Only the style.`
 
 ## How it works
 
 The running server says what to install. The pack says where it goes. The person's request wins over taste: a named background, a second animation, or a QR code is built. A license failure, someone else's logo, or a paid registry is still a refusal.
 
-`examples/burger-life` is a trial landing kept in this repository. It is not the setup guide.
+`examples/burger-life` is a trial landing kept in this repository. `examples/gate-pass` is a one-page tool with a background, a button animation, and a QR code. Neither file is the setup guide.
 
 ## First message
 
@@ -35,7 +56,7 @@ Repeat the pack path only if you have not run `install-visual-craft.bat` once on
 
 ## Run
 
-Start `start-visual-craft-mcp.bat`. Stop with `stop-visual-craft-mcp.bat`. On another system, `node mcp/visual-craft/src/http.js` listens on the same address.
+From `mcp/visual-craft`, run `npm start`. Stop with `npm run stop`. The listener is `http://127.0.0.1:3847/mcp`. On Windows, `start-visual-craft-mcp.bat` and `stop-visual-craft-mcp.bat` call those same commands.
 
 Add this inside `mcpServers` in `%USERPROFILE%\.cursor\mcp.json` (on macOS and Linux, `~/.cursor/mcp.json`):
 

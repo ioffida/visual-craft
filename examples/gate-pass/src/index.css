@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --color-ring: var(--ring);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: #0c0f14;
+  --foreground: #f4f1ea;
+  --card: #161b22;
+  --card-foreground: #f4f1ea;
+  --primary: #f4f1ea;
+  --primary-foreground: #0c0f14;
+  --secondary: #222833;
+  --secondary-foreground: #f4f1ea;
+  --muted: #222833;
+  --muted-foreground: #b7b1a6;
+  --accent: #d6ff4a;
+  --accent-foreground: #0c0f14;
+  --destructive: #ff5a36;
+  --border: #2c3440;
+  --ring: #d6ff4a;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+.pass-status {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@starting-style {
+  .pass-status {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pass-status {
+    transform: none;
+    transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  @starting-style {
+    .pass-status {
+      opacity: 0;
+      transform: none;
+    }
+  }
+
+  [data-slot="button"]:active {
+    transform: none;
+    opacity: 0.88;
+  }
+}

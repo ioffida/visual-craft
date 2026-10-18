@@ -15,13 +15,13 @@ if exist "%PIDFILE%" (
   del "%PIDFILE%"
 )
 
-where node >nul 2>&1
+where npm >nul 2>&1
 if errorlevel 1 (
-  echo node.exe не найден в PATH.
+  echo npm не найден в PATH.
   exit /b 1
 )
 
-start "visual-craft-mcp" /MIN node "%~dp0mcp\visual-craft\src\http.js"
+start "visual-craft-mcp" /MIN /D "%~dp0mcp\visual-craft" cmd /c npm start
 set /a TRIES=0
 
 :wait

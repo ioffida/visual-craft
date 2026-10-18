@@ -19,6 +19,20 @@ test("a selling page opens style, structure, and one viewport effect", async () 
   assert.equal(plan.writesFiles, false)
   assert.ok(plan.picks.some((pick) => pick.id === "theme-modern-minimal"))
   assert.ok(plan.picks.some((pick) => pick.id === "hero-spotlight"))
+  assert.ok(plan.picks.some((pick) => pick.id === "nav-floating"))
+  assert.ok(plan.picks.some((pick) => pick.id === "pricing-cards"))
+  assert.ok(plan.picks.some((pick) => pick.id === "faq-accordion"))
+  assert.ok(plan.picks.some((pick) => pick.id === "footer-links"))
+})
+
+test("reworking a button stays on the button", async () => {
+  const items = await loadCatalog()
+  const plan = await planStyle({ request: "переделай кнопку", hasTheme: true }, items)
+  assert.equal(plan.lanes.style, "closed")
+  assert.equal(plan.lanes.structure, "open")
+  assert.notEqual(plan.lanes.motionMode, "viewport")
+  assert.ok(plan.picks.some((pick) => pick.id === "button-shadcn"))
+  assert.equal(plan.picks.some((pick) => pick.role === "nav"), false)
 })
 
 test("only the animation leaves style and theme untouched", async () => {
